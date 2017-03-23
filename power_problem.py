@@ -53,13 +53,13 @@ file.close()
 
 illinois_bund_res = []
 
-
-
-
 for i in range(len(power_data)):
-    power_data[i][-3] = float(power_data[i][-2])
+    if power_data[i][4] == "Bundled" and power_data[i][3] == "IL":
+        illinois_bund_res.append(power_data[i][8])
+print("The median is", statistics.median(illinois_bund_res))
 
-power_data.sort(key=itemgetter(-2))
+
+#power_data.sort(key=itemgetter(-2))
 #print(power_data[len(power_data[-2]))
 
 
